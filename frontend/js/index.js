@@ -19,15 +19,11 @@ joinForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const participant = {
-        fullName: document.getElementById("fullName").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        college: document.getElementById("college").value.trim(),
-        course: document.getElementById("course").value.trim()
+        fullName: document.getElementById("fullName").value.trim()
     };
 
     try {
-        const response = await fetch("/api/competition/join", {
+        const response = await fetch("/api/session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -44,15 +40,13 @@ joinForm.addEventListener("submit", async (e) => {
 
         // Save the participant so the rest of the flow reuses the same session.
         localStorage.setItem("cybersafeParticipant", JSON.stringify(data.participant));
-        localStorage.setItem("participantId", data.participantId);
+        localStorage.setItem("participantId", data.participant._id);
 
-        alert("Welcome to CyberSafe Challenge!");
-
-        // Redirect to first challenge
+        joinModal.classList.add("hidden");
         window.location.href = "login.html";
 
     } catch (error) {
         console.error(error);
-        alert("Cannot connect to the server. Is the backend running?");
+        alert("Cannot start the challenge right now. Please try again.");
     }
 });

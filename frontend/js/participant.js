@@ -6,11 +6,12 @@ function getParticipantSession() {
 }
 
 let sessionRequest;
-async function startAnonymousSession() {
+async function startAnonymousSession(fullName = "") {
     const existing = getParticipantSession();
     if (existing?._id) return existing;
     if (!sessionRequest) {
-        sessionRequest = apiRequest("/session", { method: "POST" }).then(({ participant }) => {
+        const body = fullName ? JSON.stringify({ fullName }) : undefined;
+        sessionRequest = apiRequest("/session", { method: "POST", body }).then(({ participant }) => {
             localStorage.setItem(PARTICIPANT_STORAGE_KEY, JSON.stringify(participant));
             return participant;
         }).catch((error) => {

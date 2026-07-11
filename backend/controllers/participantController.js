@@ -12,9 +12,9 @@ export async function joinCompetition(req, res, next) {
             course = ""
         } = req.body;
 
-        if (!fullName || !email || !phone) {
+        if (!fullName) {
             return res.status(400).json({
-                message: "Full name, email and phone are required."
+                message: "Full name is required."
             });
         }
 
@@ -30,8 +30,8 @@ export async function joinCompetition(req, res, next) {
 
         const participant = await Participant.create({
             fullName,
-            email,
-            phone,
+            email: email || `guest-${Date.now()}-${Math.random().toString(16).slice(2)}@cybersafe.com`,
+            phone: phone || `${Date.now()}`.slice(-10),
             college,
             course,
             competitionCode: competition.competitionCode
@@ -52,6 +52,7 @@ export async function joinCompetition(req, res, next) {
 export async function createAnonymousSession(req, res, next) {
 
     try {
+        const { fullName = "Guest User" } = req.body || {};
 
         const competition = await Competition.findOne({
             status: "active"
@@ -64,17 +65,11 @@ export async function createAnonymousSession(req, res, next) {
         }
 
         const participant = await Participant.create({
-
-            fullName: "Guest User",
-
-            email: `guest${Date.now()}@cybersafe.com`,
-
-            phone: `${Date.now()}`,
-
+            fullName,
+            email: `guest-${Date.now()}-${Math.random().toString(16).slice(2)}@cybersafe.com`,
+            phone: `${Date.now()}`.slice(-10),
             college: "",
-
             course: "",
-
             competitionCode: competition.competitionCode
 
         });
