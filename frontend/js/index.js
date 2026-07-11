@@ -27,7 +27,7 @@ joinForm.addEventListener("submit", async (e) => {
     };
 
     try {
-        const response = await fetch("http://localhost:5000/api/competition/join", {
+        const response = await fetch("/api/competition/join", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -42,7 +42,8 @@ joinForm.addEventListener("submit", async (e) => {
             return;
         }
 
-        // Save participant id
+        // Save the participant so the rest of the flow reuses the same session.
+        localStorage.setItem("cybersafeParticipant", JSON.stringify(data.participant));
         localStorage.setItem("participantId", data.participantId);
 
         alert("Welcome to CyberSafe Challenge!");

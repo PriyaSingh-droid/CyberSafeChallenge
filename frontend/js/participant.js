@@ -1,5 +1,5 @@
 const PARTICIPANT_STORAGE_KEY = "cybersafeParticipant";
-const API_BASE_URL = "https://cybersafechallenge.onrender.com/api";
+const API_BASE_URL = "/api";
 
 function getParticipantSession() {
     try { return JSON.parse(localStorage.getItem(PARTICIPANT_STORAGE_KEY)); } catch { return null; }
@@ -26,7 +26,7 @@ async function apiRequest(path, options = {}) {
     try {
         response = await fetch(`${API_BASE_URL}${path}`, { headers: { "Content-Type": "application/json", ...(options.headers || {}) }, ...options });
     } catch {
-        throw new Error("The server is unavailable. Start the backend with npm start, then open http://localhost:5000.");
+        throw new Error("The server is unavailable. Start the backend and open the app from the deployed service or http://localhost:5000.");
     }
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(payload.message || "Your result could not be saved.");

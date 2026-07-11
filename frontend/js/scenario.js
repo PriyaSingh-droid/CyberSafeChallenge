@@ -289,7 +289,7 @@ async function finishScenarioLab() {
     try {
         const participant = await CyberSafe.startAnonymousSession();
         const data = await CyberSafe.apiRequest("/scenario/submit", { method: "POST", body: JSON.stringify({ participantId: participant._id, xp, correctAnswers: threatsAvoided, wrongAnswers: scenarios.length - threatsAvoided }) });
-        localStorage.setItem("cybersafeScenarioResult", JSON.stringify(data.result));
+        localStorage.setItem("cybersafeScenarioResult", JSON.stringify(data.result || data));
     } catch (error) {
         alert(`Your scenario result could not be submitted: ${error.message}`);
         return;

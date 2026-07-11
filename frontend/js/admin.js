@@ -22,7 +22,7 @@ function renderCharts(data) {
 }
 
 function renderParticipants(participants) {
-    document.getElementById("participantBody").innerHTML = participants.map((participant) => `<tr><td>${participant.fullName}</td><td>${participant.sessionId}</td><td>${participant.competitionCode}</td><td>${new Date(participant.registeredAt).toLocaleString()}</td></tr>`).join("");
+    document.getElementById("participantBody").innerHTML = participants.map((participant) => `<tr><td>${participant.fullName}</td><td>${participant._id}</td><td>${participant.competitionCode}</td><td>${new Date(participant.createdAt || participant.registeredAt).toLocaleString()}</td></tr>`).join("");
 }
 
 async function loadDashboard() {
