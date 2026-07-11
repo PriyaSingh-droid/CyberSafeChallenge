@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Readiness Report | CyberSafe Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-shell">
+    <header class="site-header compact no-print">
+        <a class="brand" href="index.html"><span class="brand-mark">CS</span><span>CyberSafe Challenge</span></a>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a href="login.html">Simulation</a>
+            <a href="quiz.html">Quiz</a>
+            <a class="active" href="scenario.html">Scenario Lab</a>
+            <a href="tips.html">Defense Guide</a>
+        </nav>
+    </header>
+
+    <main class="scenario-report-layout">
+        <section class="score-card report-card">
+            <p class="eyebrow">Scenario complete</p>
+            <h1>Cyber Readiness Report</h1>
+            <div class="score-ring" id="reportRing" aria-label="Scenario accuracy">
+                <span id="reportAccuracy">0%</span>
+            </div>
+            <h2 id="reportBadge">Cyber Rookie</h2>
+            <p id="reportMessage" class="muted">Your report is ready.</p>
+        </section>
+
+        <section class="certificate-card report-details">
+            <div class="report-grid">
+                <div><span>XP Earned</span><strong id="reportXp">0</strong></div>
+                <div><span>Threats Avoided</span><strong id="reportAvoided">0</strong></div>
+                <div><span>Badge Earned</span><strong id="reportBadgeMini">Cyber Rookie</strong></div>
+                <div><span>Scenario Accuracy</span><strong id="reportAccuracyMini">0%</strong></div>
+            </div>
+
+            <div class="recommendation-panel">
+                <h2>Recommendations</h2>
+                <ul id="recommendations"></ul>
+            </div>
+
+            <div class="result-actions no-print">
+                <button class="btn secondary" id="retakeScenarioBtn" type="button">Retake Scenario Lab</button>
+                <a class="btn primary" href="tips.html">Continue to Defense Guide</a>
+                <button class="btn secondary" id="downloadReportBtn" type="button">Download Report</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/scenario-result.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CyberSafe Challenge</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a class="brand" href="index.html">
+
+<span class="brand-mark">CS</span>
+
+<span>CyberSafe Challenge</span>
+
+</a>
+
+<nav class="nav-links">
+
+<a href="login.html">Simulation</a>
+
+<a href="quiz.html">Quiz</a>
+
+<a href="scenario.html">Scenario Lab</a>
+
+<a href="tips.html">Defense Guide</a>
+
+<a href="leaderboard.html">Leaderboard</a>
+
+</nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="hero-copy">
+
+<p class="eyebrow">
+
+Cybersecurity Awareness Competition
+
+</p>
+
+<h1>
+
+Think Like an Attacker.<br>
+
+Defend Like a Professional.
+
+</h1>
+
+<p class="hero-text">
+
+Experience realistic phishing attacks, solve cybersecurity quizzes,
+
+analyze real-world scenarios, earn badges,
+
+compete on the leaderboard,
+
+and become a Cyber Guardian.
+
+</p>
+
+<div class="hero-actions">
+
+<button id="startChallengeBtn" class="btn primary">
+
+🚀 Start Competition
+
+</button>
+
+<a href="tips.html" class="btn secondary">
+
+Defense Guide
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-heading">
+
+<p class="eyebrow">
+
+Competition Modules
+
+</p>
+
+<h2>
+
+Learn. Compete. Defend.
+
+</h2>
+
+</div>
+
+<div class="feature-grid">
+
+<article class="feature-card">
+
+<span class="icon-tile">01</span>
+
+<h3>Fake Login</h3>
+
+<p>
+
+Experience how phishing websites steal credentials.
+
+</p>
+
+</article>
+
+<article class="feature-card">
+
+<span class="icon-tile">02</span>
+
+<h3>Cyber Quiz</h3>
+
+<p>
+
+Answer real cybersecurity questions.
+
+</p>
+
+</article>
+
+<article class="feature-card">
+
+<span class="icon-tile">03</span>
+
+<h3>Scenario Lab</h3>
+
+<p>
+
+Take decisions in real attack situations.
+
+</p>
+
+</article>
+
+<article class="feature-card">
+
+<span class="icon-tile">04</span>
+
+<h3>Leaderboard</h3>
+
+<p>
+
+Compete with everyone participating.
+
+</p>
+
+</article>
+
+<article class="feature-card">
+
+<span class="icon-tile">05</span>
+
+<h3>Certificate</h3>
+
+<p>
+
+Receive your CyberSafe Completion Certificate.
+
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- ===================== -->
+
+<!-- JOIN COMPETITION MODAL -->
+
+<!-- ===================== -->
+
+<div class="modal hidden" id="joinModal">
+
+<div class="modal-content">
+
+<h2>
+
+🏆 Join CyberSafe Challenge
+
+</h2>
+
+<p>
+
+Enter your details to begin the competition.
+
+</p>
+
+<form id="joinForm">
+
+<input
+type="text"
+id="fullName"
+placeholder="Full Name"
+required
+>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required
+>
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required
+>
+
+<input
+type="text"
+id="college"
+placeholder="College (Optional)"
+>
+
+<input
+type="text"
+id="course"
+placeholder="Course (Optional)"
+>
+
+<button
+type="submit"
+class="btn primary"
+>
+
+Join Competition
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+
+</html>

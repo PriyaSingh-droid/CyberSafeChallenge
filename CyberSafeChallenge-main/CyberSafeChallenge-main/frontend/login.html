@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Login Awareness Demo | CyberSafe Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-shell">
+    <header class="site-header compact">
+        <a class="brand" href="index.html"><span class="brand-mark">CS</span><span>CyberSafe Challenge</span></a>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a class="active" href="login.html">Simulation</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="scenario.html">Scenario Lab</a>
+            <a href="tips.html">Defense Guide</a>
+        </nav>
+    </header>
+
+    <main class="split-screen">
+        <section class="lesson-panel">
+            <p class="eyebrow">Module 1</p>
+            <h1>Fake login awareness simulation</h1>
+            <p>This page imitates a login prompt safely. Submit any made-up email and password to reveal what attackers want you to miss.</p>
+            <div class="risk-board">
+                <div><strong>Common trap</strong><span>Urgent sign-in request</span></div>
+                <div><strong>Safety check</strong><span>Domain, HTTPS, sender, MFA</span></div>
+                <div><strong>Data policy</strong><span>Nothing is saved or transmitted</span></div>
+            </div>
+        </section>
+
+        <section class="auth-card" aria-label="Demo login form">
+            <div class="spoof-bar">
+                <span class="lock-dot"></span>
+                <span>secure-account-verify.example</span>
+            </div>
+            <h2>Account Security Login</h2>
+            <p class="muted">Demo only. Use fake details.</p>
+            <form id="loginForm">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="student@example.com" autocomplete="off" required>
+
+                <label for="password">Password</label>
+                <div class="password-row">
+                    <input type="password" id="password" placeholder="Enter a fake password" required>
+                    <button class="icon-button" type="button" id="togglePassword" aria-label="Show password">Show</button>
+                </div>
+
+                <label class="check-row">
+                    <input type="checkbox" checked>
+                    <span>Trust this device</span>
+                </label>
+                <button class="btn primary full" type="submit">Sign In</button>
+            </form>
+            <a class="text-link" href="index.html">Back to home</a>
+        </section>
+    </main>
+
+    <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+        <div class="popup-content">
+            <p class="eyebrow danger">Simulation revealed</p>
+            <h2 id="popupTitle">This could have been a phishing page.</h2>
+            <p>No information was saved. Real attackers use pages like this to steal credentials, reset accounts, or bypass payment checks.</p>
+            <ul class="defense-list">
+                <li>Check the full domain before typing a password.</li>
+                <li>Look for HTTPS, but remember HTTPS alone does not prove trust.</li>
+                <li>Open important sites from bookmarks or typed URLs.</li>
+                <li>Use a password manager and multi-factor authentication.</li>
+            </ul>
+            <button class="btn primary full" type="button" id="continueToQuiz">Continue to Quiz</button>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
