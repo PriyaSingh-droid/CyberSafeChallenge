@@ -17,7 +17,28 @@ import adminRoutes from "./routes/adminRoutes.js";
 const app = express();
 const frontend = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "frontend");
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors({ origin: process.env.CLIENT_ORIGIN?.split(",") || true }));
+const allowedOrigins = [
+  "https://priyasingh-droid.github.io",
+  "http://localhost:5500",
+  "http://127.0.0.1:5500"
+];
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`Origin ${origin} not allowed by CORS`));
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.options("*", cors());
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 app.use(express.json({ limit: "20kb" }));
 app.use(sanitizeBody);
