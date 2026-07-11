@@ -1,5 +1,5 @@
 const PARTICIPANT_STORAGE_KEY = "cybersafeParticipant";
-const API_BASE_URL = window.location.port === "5000" ? "/api" : "http://localhost:5000/api";
+const API_BASE_URL = "https://cybersafechallenge.onrender.com/api";
 
 function getParticipantSession() {
     try { return JSON.parse(localStorage.getItem(PARTICIPANT_STORAGE_KEY)); } catch { return null; }
