@@ -139,6 +139,14 @@ const feedbackTitle = document.getElementById("feedbackTitle");
 const safeReason = document.getElementById("safeReason");
 const attackerReason = document.getElementById("attackerReason");
 const nextScenarioBtn = document.getElementById("nextScenarioBtn");
+const scenarioCard = document.querySelector(".scenario-card");
+
+function pulseCard(card) {
+    if (!card) return;
+    card.classList.remove("fade-in");
+    void card.offsetWidth;
+    card.classList.add("fade-in");
+}
 
 function getBadge(value) {
     if (value >= 140) return "Cyber Guardian";
@@ -184,6 +192,7 @@ function updateSummary(previousXp = xp) {
 }
 
 function renderScenario() {
+    pulseCard(scenarioCard);
     const scenario = scenarios[currentScenario];
     const storedResult = results[currentScenario];
     selectedThisRound = null;
@@ -226,6 +235,7 @@ function renderScenario() {
         attackerReason.textContent = scenario.attackerReason;
         explanationCard.hidden = false;
         explanationCard.classList.add(storedResult.isCorrect ? "success" : "failure");
+        pulseCard(explanationCard);
         nextScenarioBtn.disabled = false;
     }
 
@@ -267,6 +277,7 @@ function selectChoice(index) {
     attackerReason.textContent = scenario.attackerReason;
     explanationCard.hidden = false;
     explanationCard.classList.add(isCorrect ? "success" : "failure");
+    pulseCard(explanationCard);
     nextScenarioBtn.disabled = false;
 
     saveProgress();

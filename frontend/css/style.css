@@ -164,8 +164,15 @@ img {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-links a {
@@ -174,6 +181,7 @@ img {
     border-radius: 999px;
     border: 1px solid transparent;
     transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    flex: 0 0 auto;
 }
 
 .nav-links a:hover,
@@ -233,6 +241,19 @@ h3 {
     gap: 28px;
     min-height: calc(100vh - 98px);
     padding: 32px 0;
+}
+
+.hero,
+.split-screen,
+.quiz-layout,
+.result-layout,
+.scenario-layout,
+.scenario-report-layout,
+.table-layout,
+.admin-layout,
+.guide-layout,
+.section {
+    animation: pageReveal 0.8s ease both;
 }
 
 .hero {
@@ -453,6 +474,17 @@ h3 {
 .chart-card,
 .scenario-sidebar,
 .scenario-card {
+    animation: fadeRise 0.75s ease both;
+}
+
+.quiz-card,
+.scenario-card,
+.table-card,
+.guide-hero,
+.section-heading,
+.score-card,
+.certificate-card,
+.auth-card {
     animation: fadeRise 0.75s ease both;
 }
 

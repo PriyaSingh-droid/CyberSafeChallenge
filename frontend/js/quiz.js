@@ -124,6 +124,14 @@ const qno = document.getElementById("questionNumber");
 const categoryLabel = document.getElementById("categoryLabel");
 const answeredCount = document.getElementById("answeredCount");
 const remainingCount = document.getElementById("remainingCount");
+const quizCard = document.querySelector(".quiz-card");
+
+function pulseCard(card) {
+    if (!card) return;
+    card.classList.remove("fade-in");
+    void card.offsetWidth;
+    card.classList.add("fade-in");
+}
 
 function calculateScore() {
     return quiz.reduce((total, item, index) => total + (selected[index] === item.correct ? 1 : 0), 0);
@@ -136,6 +144,7 @@ function updateStats() {
 }
 
 function loadQuestion() {
+    pulseCard(quizCard);
     const item = quiz[currentQuestion];
     qno.textContent = `Question ${currentQuestion + 1} of ${quiz.length}`;
     categoryLabel.textContent = item.category;
