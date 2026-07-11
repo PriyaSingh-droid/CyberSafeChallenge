@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Lab | CyberSafe Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-shell">
+    <header class="site-header compact">
+        <a class="brand" href="index.html"><span class="brand-mark">CS</span><span>CyberSafe Challenge</span></a>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a href="login.html">Simulation</a>
+            <a href="quiz.html">Quiz</a>
+            <a class="active" href="scenario.html">Scenario Lab</a>
+            <a href="tips.html">Defense Guide</a>
+        </nav>
+    </header>
+
+    <main class="scenario-layout">
+        <aside class="scenario-sidebar">
+            <p class="eyebrow">Scenario Lab</p>
+            <h1>Think Like an Attacker, Defend Like a Professional</h1>
+            <p>Every click is a decision. Read the scenario carefully and choose the safest response.</p>
+
+            <div class="scenario-stats" aria-label="Scenario progress and XP">
+                <div>
+                    <span>Progress</span>
+                    <strong id="scenarioProgress">Scenario 1 of 7</strong>
+                </div>
+                <div>
+                    <span>XP</span>
+                    <strong id="xpCounter">0</strong>
+                </div>
+                <div>
+                    <span>Badge</span>
+                    <strong id="badgeLabel">Cyber Rookie</strong>
+                </div>
+            </div>
+        </aside>
+
+        <section class="scenario-card fade-in" aria-live="polite">
+            <div class="quiz-meta">
+                <p id="scenarioNumber">Scenario 1 of 7</p>
+                <span id="scenarioBadge">Cyber Rookie</span>
+            </div>
+            <div class="progress" aria-hidden="true"><div class="progress-bar" id="scenarioProgressBar"></div></div>
+
+            <h2 id="scenarioTitle">Loading...</h2>
+            <div class="scenario-story" id="scenarioStory"></div>
+            <div class="answer-list" id="scenarioChoices"></div>
+
+            <article class="explanation-card" id="explanationCard" hidden>
+                <h3 id="feedbackTitle">Feedback</h3>
+                <p><strong>Why the correct answer is safe:</strong> <span id="safeReason"></span></p>
+                <p><strong>Why the attacker designed it this way:</strong> <span id="attackerReason"></span></p>
+            </article>
+
+            <div class="quiz-buttons">
+                <a class="btn secondary" href="quiz.html">Back to Quiz</a>
+                <button class="btn primary" id="nextScenarioBtn" type="button" disabled>Next</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/participant.js"></script>
+    <script src="js/scenario.js"></script>
+</body>
+</html>
